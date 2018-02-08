@@ -23,7 +23,7 @@ module.exports = function (grunt) {
             },
             stylesmin: {
                 files: ['assets/styles/style.css'],
-                tasks: ['css-min', 'uncss'],
+                tasks: ['css-min'],
                 options: {
                     spawn: false,
                     debounceDelay: 700
