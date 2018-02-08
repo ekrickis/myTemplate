@@ -1,0 +1,79 @@
+.related-products-section {
+	@include rems (margin, 70, 0);
+
+	.section__heading {
+		@include rems (margin-bottom, 70);
+	}
+
+	.related-products__item {
+		@include rems (width, 296);
+		position: relative;
+		.button {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			border: none;
+			line-height: 1.2;
+
+			&--arrivals {
+				background-color: $sixth-color;
+			}
+
+			&--collection {
+				background-color: $eigth-color;
+			}
+
+			&--barbour {
+				background-color: $ninth-color;
+			}
+		}
+		@include breakpoint (medium down) {
+			margin-left: auto;
+			margin-right: auto;
+			@include rems (margin-bottom, 50);
+		}
+	}
+
+}
+
+.brand-section {
+
+	.brand-section__brand-list {	
+		@include rems (border-width, 0, 0, 1);
+		border-style: solid;
+		border-color: $second-color;
+		@include rems (padding-bottom, 40);
+		display: flex;
+		justify-content: space-around;
+		position: relative;
+	}
+
+	@include breakpoint (medium down) {
+		.brand-section__brand-list {
+			flex-flow: row wrap;
+			padding-bottom: 0;
+			.brand-list__item {
+				@include rems (margin-bottom, 20);
+			}
+		}
+	}
+}
+
+.section__heading {
+	position: relative;		
+	@include rems (border-width, 1, 0, 0);
+	@include rems (margin-bottom, 40);
+	border-style: solid;
+	border-color: $second-color;
+
+	.button {
+		position: absolute;
+		@include rems (width, 140);
+		line-height: 1.2;
+		text-transform: uppercase;
+		transform: translateX(-50%);
+		left: 50%;
+		color: $third-color;
+		@include rems (top, -20);
+	}
+}

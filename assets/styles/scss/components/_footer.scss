@@ -1,0 +1,108 @@
+/************************************************
+
+Stylesheet: Footer Stylesheet
+
+*************************************************/
+
+.bottom-bar {
+	background-color: $sixth-color;
+	@include rems (padding, 50, 0);
+	@include rems (margin-top, 40);
+
+	h4 {
+		text-decoration: underline;
+		text-transform: uppercase;		
+		line-height: 1.5;
+		@include rems (margin-bottom, 30);
+	}
+
+	.bottom-bar__nav-menu, .bottom-bar__contacts {
+		li {
+			list-style-type: none;
+			@include rems (letter-spacing, 0.7);
+			color: $seventh-color;
+			p {
+				@include rems (margin-bottom, 26);
+			}
+			a {
+				@include rems (letter-spacing, 0.7);
+				color: $seventh-color;
+
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+	}
+
+	.bottom-bar__payment-cards {
+		@include rems (margin-top, 50);
+		.payment-cards__card {
+			@include size (45, 27);
+			display: inline-block;
+			@include rems (margin-right, 5);
+
+			&--visa {
+				@include background-image (visa, png);
+			}
+
+			&--paypal {
+				@include background-image (paypal, png);
+			}			
+
+			&--master {
+				@include background-image (mastercard, png);
+			}			
+
+			&--amex {
+				@include background-image (amex, png);
+			}			
+
+			&--solo {
+				@include background-image (solo, png);
+			}
+
+		}
+	}
+
+	.bottom-bar__credits {
+
+		p {
+			margin: 0;
+		}
+
+		&:before {
+			@include rems (margin-top, 50);
+			@include rems (margin-bottom, 20);
+			@include rems (border-width, 1, 0, 0);
+			border-style: solid;
+			display: block;
+			opacity: 0.502;
+			border-color: $second-color;
+		}
+	}
+}
+
+
+@include breakpoint (medium only) {
+	.bottom-bar__search-form {
+		width: 50%;
+	}
+}
+
+@include breakpoint (small only) {	
+	.bottom-bar {
+		h4 {
+			&:before {
+				content: "";
+				display: block;
+				@include rems (margin-top, 50);
+				@include rems (margin-bottom, 20);
+				@include rems (border-width, 1, 0, 0);
+				border-style: solid;
+				opacity: 0.502;
+				border-color: $second-color;
+			}
+		}
+	}
+}

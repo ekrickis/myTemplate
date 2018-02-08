@@ -1,0 +1,168 @@
+/************************************************
+
+Stylesheet: Button settings
+
+*************************************************/
+
+@mixin button-base() {
+  $button-font-family: $body-font-family;
+  $button-font-size: 14;
+  $button-font-weight: 500;
+  $button-width: 50;
+
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-family: $button-font-family;
+  @include rems(font-size, $button-font-size);
+  font-weight: $button-font-weight;
+  line-height: 1.2;
+  text-decoration: none;
+  @include rems (letter-spacing, 0.9);
+
+  &:focus {
+    text-decoration: none;
+  }
+
+  text-align: center;
+
+  @include rems(padding, 10);
+  @include rems(min-width, $button-width);
+  max-width: 100%;
+  border-radius: 0;
+
+  -webkit-appearance: none;
+  outline: none;
+  transition: all .2s;
+
+  &.auto-width {
+    width: auto;
+  }
+
+  &.wide {
+    width: 100%;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.small {
+    @include rems(font-size, 14);
+    @include rems(padding, 10, 25);
+  }
+}
+
+@mixin button-colors($button-type: default) {
+
+  $button-bg-fallback: false !default;
+  $button-bg: transparent;
+  $button-text-color: #000;
+  $button-bg-hover: $hover-color;
+  $button-text-color-hover: #fff;
+  $button-bg-active: #000;
+  $button-text-color-active: #fff;
+
+  $button-bg-disabled: $button-bg-hover;
+  $button-text-color-disabled: gray;
+
+  $button-border-width: 1px;
+  $button-border-style: solid;
+  $button-border-color: #000;
+
+  $button-border-color-disabled: $button-border-color;
+  $button-border-color-hover: $button-bg;
+
+  @if $button-type == default{
+    $button-bg: #fff;
+    $button-text-color: $third-color;
+    $button-bg-disabled: $button-bg;
+    $button-text-color-disabled: grey;
+
+    $button-border-color: $second-color;
+    $button-border-color-hover: $button-bg-hover;
+    $button-border-color-disabled: $button-bg-hover;
+
+    $button-bg-active: darken($button-bg-hover, 10%);
+  }  
+
+  border: $button-border-width $button-border-style $button-border-color;
+  @if $button-bg-fallback {
+    background: $button-bg-fallback;
+  }
+
+  background: $button-bg;
+  color: $button-text-color;
+
+  &:hover {
+    //switch colors
+    //background-color: $button-bg-hover;
+    //color: $button-text-color-hover;
+    text-decoration: none;
+    border-color: $button-border-color-hover;
+
+    //svg path {
+    //  fill: $button-text-color-hover;
+    //}
+  }
+  &:active {
+    //switch colors
+    background: $button-bg-active;
+    color: $button-text-color-active;
+    text-decoration: none;
+
+  }
+  &:disabled {
+    background: $button-bg-disabled;
+    color: $button-text-color-disabled;
+    text-decoration: none;
+    border-color: $button-border-color-disabled;
+    @include rems(padding, 14);
+    opacity: 1;
+
+    &:hover{
+      background: $button-bg-disabled;
+      color: $button-text-color-disabled;
+      text-decoration: none;
+      border-color: $button-border-color-disabled;
+      @include rems(padding, 14);
+      opacity: 1;
+    }
+
+  }
+}
+
+@mixin button-border-colors($button-type: gray-border) {
+
+  $button-border-width: 1px;
+  $button-border-style: solid;
+  $button-border-color: #000;
+
+  $button-border-color-disabled: $button-border-color;
+
+  @if $button-type == gray-border {
+    $button-border-color: $second-color;
+  }
+  @if $button-type == white-border {
+    $button-border-color: #fff;
+  }
+
+  border: $button-border-width $button-border-style $button-border-color;
+  &:disabled {
+    border-color: $button-border-color-disabled;
+  }
+
+}
+
+
+
+.button {
+  @include button-base();
+
+  @include button-border-colors();
+
+  &.primary-button {
+    @include button-colors(default);
+  }  
+
+}

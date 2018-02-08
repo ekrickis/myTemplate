@@ -1,0 +1,213 @@
+/************************************************
+
+Stylesheet: Header Stylesheet
+
+*************************************************/
+
+.top-bar__services {
+	background-color: $primary-color;
+	@include rems (padding, 10, 0);
+
+	a, span {
+		color: $third-color;
+		@include rems (font-size, 14);
+		line-height: 1.2;
+		vertical-align: middle;
+	}
+
+	a {
+		&:hover {
+			color: $fourth-color;
+		}
+	}	
+
+	.services__services-menu {
+		text-align: right;
+	}
+
+	.services__services-menu__item {
+		@include rems (margin-right, 20);
+	}
+
+	.services-menu__social-links {
+		display: inline-block;
+		@include rems (margin-left, 20);
+
+		.social-links__link {
+			background-color: $third-color;
+			border-radius: 50%;
+			@include size (32, 32);
+			display: inline-block;
+			text-align: center;
+			@include rems (padding, 5);
+
+			&:before {
+				font-family: 'FontAwesome';
+				@include rems (font-size, 20);
+				color: $white;
+			}
+
+			&--facebook {
+				@include rems (margin-right, 5);
+				&:before {
+					content: "\f09a";
+				}
+			}
+
+			&--twitter {
+				&:before {
+					content: "\f099";
+				}
+			}			
+
+			&--instagram {
+				&:before {
+					content: "\f16d";
+				}
+			}
+
+			&:hover {
+				@include rems (padding, 4);
+				background-color: $hover-color;
+				&:before {
+					@include rems (font-size, 22);
+				}
+			}
+		}
+	}
+}
+
+.top-bar__main {
+	@include rems (padding, 60, 0);
+	.button {
+		@include rems (width, 272);
+		color: $third-color;
+		@include rems (font-size, 18);
+		font-family: 'karlabold';
+		span {
+			@include rems (font-size, 12);
+			color: $fourth-color;
+		}
+	}
+
+	@include breakpoint (medium down) {
+		text-align: center;
+	}
+}
+
+.top-bar__nav {
+	@include rems (border-width, 1);
+	border-style: solid;
+	border-color: $second-color;
+
+	.top-bar__nav-menu {
+		@include rems (padding, 20, 0);
+		margin: 0;
+		list-style-type: none;
+		.nav-menu__menu-item {
+			display: inline-block;
+			line-height: 1.2;
+			text-transform: uppercase;
+			@include rems (margin-right, 20);
+
+			a {
+				color: $third-color;
+
+				&:hover {
+					color: $hover-color;
+				}
+			}
+
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+}
+
+.topbar__nav-search-form, .topbar__services-search-form {
+	button {
+		@include rems (width, 50);
+		&:before {
+			font-family: 'FontAwesome';
+			content: "\f002";
+		}
+	}
+}
+
+@include breakpoint (medium down) {
+
+	.top-bar__nav {
+		background-color: $white;
+		border: none;
+		border-bottom: 1px solid $third-color;
+		@include rems (padding, 20, 0);
+
+		&--logo {
+			@include rems (width, 70);
+		}
+
+		&--hamburger {
+			text-align: right;
+
+			.hamburger {
+				font-weight:bold;
+				cursor:pointer;
+				outline:none;			
+			}
+
+			.close-button{
+				display: none;
+				font-weight:bold;
+				cursor:pointer;
+				outline:none;
+			}
+		}
+	}
+
+	.top-bar--sticky {
+	  position: fixed;
+	  top: 0;
+	  width: 100%;
+	  z-index: 999;
+	}
+
+	.top-bar__services {
+		@include rems (border-width, 1, 0);
+		border-style: solid;
+		border-color: $third-color;
+		.services__services-menu {
+			@include rems (margin, 10, 0);
+		}
+
+		.topbar__services-search-form {
+			margin: 0;
+		}
+	}
+
+	.top-bar__nav-menu {
+		border-bottom: 1px solid $third-color;
+		background-color: $white;
+		.nav-menu__menu {
+			.nav-menu__menu-item {
+				.button {
+					text-align: left;
+					border: 1px solid transparent;
+					border-bottom: 1px solid lighten($second-color, 10%);
+
+					&:hover {
+						border-top: 1px solid darken($hover-color, 10%);
+						border-bottom: 1px solid darken($hover-color, 10%);
+					}
+				}
+			}
+		}
+	}
+
+	.mobiile__services-menu {
+		display: none;
+		z-index: 999999;
+		width: 100%;
+	}
+}
+

@@ -1,0 +1,54 @@
+/************************************************
+
+Stylesheet: Website utilities Stylesheet
+
+*************************************************/
+
+.site-form {
+	position: relative;
+	@include rems (margin, 10, 0);
+	input {
+		@include border();
+		width: 100%;
+		@include rems (padding, 12, 20);
+	}
+	button {
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100%;
+		background-color: $third-color;
+		color: $white;
+		@include rems (padding, 0, 10);
+		@include rems (font-size, 13);
+		@include rems (letter-spacing, 0.65);
+
+		&:hover {
+			background-color: $hover-color;
+		}
+	}
+}
+
+.scrollToTop {
+	position: fixed;
+	display: none;
+	@include rems (bottom, 40);
+	@include rems (right, 20);
+	background-color: $white;
+	border: 1px solid $third-color;
+	border-radius: 50%;
+	@include size (32, 32);
+	color: $third-color;
+	@include rems (padding, 4);
+	text-align: center;
+
+	&:active {
+		border: none;
+	}
+
+	&:hover {
+		background-color: $third-color;
+		color: $white;
+		border-color: $white;
+	}
+}

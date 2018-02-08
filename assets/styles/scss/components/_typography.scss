@@ -1,0 +1,19 @@
+/************************************************
+
+Stylesheet: Typography Stylesheet
+
+*************************************************/
+
+h4 {
+	@include rems (letter-spacing, 0.7);
+	color: $white;
+}
+
+p {
+	@include rems (font-size, 14);
+	color: $white;
+}
+
+.columns:last-child:not(:first-child) {
+	float: left;
+}
